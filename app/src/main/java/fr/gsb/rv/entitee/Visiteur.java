@@ -33,7 +33,7 @@ public class Visiteur {
 
     public void delRapports(Rapport rapport) { this.lesRapports.remove(rapport);}
 
-    public void addRapports(Rapport rapport) {
+    public void addRapport(Rapport rapport) {
         this.lesRapports.add(rapport);
     }
 

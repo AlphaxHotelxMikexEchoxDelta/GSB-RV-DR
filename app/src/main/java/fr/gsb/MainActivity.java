@@ -34,17 +34,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         login = findViewById(R.id.Login) ;
         mdp = findViewById(R.id.Mdp);
         t = findViewById(R.id.error) ;
         valider = findViewById(R.id.Valider) ;
-        System.out.println(Session.session);
+
         /** A ENLEVER POUR E5 **/
 
         login.setText("a131");
         mdp.setText("azerty");
 
         /** A ENLEVER POUR E5 **/
+
     }
 
     @SuppressLint("SetTextI18n")
@@ -54,44 +56,41 @@ public class MainActivity extends AppCompatActivity {
             Intent intention = new Intent( this, MenuRvActivity.class ) ;
             startActivity( intention );
         }
+        else {
+            if (!login.getText().toString().isEmpty() && !mdp.getText().toString().isEmpty()) {
 
-        if( !login.getText().toString().isEmpty() && !mdp.getText().toString().isEmpty() ) {
-
-            String url = String.format("http://192.168.0.12:5000/visiteurs/%s/%s", login.getText(), mdp.getText());
-            Response.Listener<JSONObject> ecouteurReponse = new Response.Listener<JSONObject>() {
-                @Override
-                public void onResponse(JSONObject response) {
-                    System.out.println(response);
-                    try {
-                        t.setText("Connection reussie !\nvous pouvez acceder a votre profile");
-                        valider.setText("Profile");
-                        Session.ouvrir(new Visiteur(
-                                login.getText().toString(),
-                                response.getString("vis_nom"),
-                                response.getString("vis_prenom"),
-                                mdp.getText().toString()
-                        ));
-                        System.out.println(Session.session.toString());
-                    } catch (JSONException e) {
-                        e.printStackTrace();
+                String url = String.format("http://192.168.0.12:5000/visiteurs/%s/%s", login.getText(), mdp.getText());
+                Response.Listener<JSONObject> ecouteurReponse = new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            t.setText("Connection reussie !\nvous pouvez acceder a votre profile");
+                            valider.setText("Profile");
+                            Session.ouvrir(new Visiteur(
+                                    login.getText().toString(),
+                                    response.getString("vis_nom"),
+                                    response.getString("vis_prenom"),
+                                    mdp.getText().toString()
+                            ));
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                     }
-                }
-            };
-            Response.ErrorListener ecouteurErreur = new Response.ErrorListener() {
+                };
+                Response.ErrorListener ecouteurErreur = new Response.ErrorListener() {
 
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    System.out.println(error);
-                    t.setText("Erreur survenue lors de la connection !\nveuillez ressayer");
-                }
-            };
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        t.setText("Erreur survenue lors de la connection !\nveuillez ressayer");
+                    }
+                };
 
-            JsonObjectRequest requete = new JsonObjectRequest(Request.Method.GET, url, null, ecouteurReponse, ecouteurErreur);
-            RequestQueue f = Volley.newRequestQueue(this);
-            f.add(requete);
-        }
-        else{
-            t.setText("Un champ de saisi est vide\nveuillez le remplir");
+                JsonObjectRequest requete = new JsonObjectRequest(Request.Method.GET, url, null, ecouteurReponse, ecouteurErreur);
+                RequestQueue f = Volley.newRequestQueue(this);
+                f.add(requete);
+            } else {
+                t.setText("Un champ de saisi est vide\nveuillez le remplir");
+            }
         }
     }
 

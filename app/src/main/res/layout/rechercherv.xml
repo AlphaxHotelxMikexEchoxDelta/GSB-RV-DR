@@ -27,31 +27,50 @@
         app:layout_constraintEnd_toEndOf="@+id/Titre"
         app:layout_constraintStart_toStartOf="@+id/Titre"
         app:layout_constraintTop_toBottomOf="@+id/Titre"
-        app:layout_constraintVertical_bias="0.502" />
-
-    <TextView
-        android:id="@+id/date"
-        android:layout_width="493dp"
-        android:layout_height="123dp"
-        android:text="Selectionnez Un Rapport :"
-        android:textSize="25px"
-        app:layout_constraintBottom_toTopOf="@+id/afficher"
-        app:layout_constraintEnd_toEndOf="@+id/Titre"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/Titre"
-        app:layout_constraintTop_toBottomOf="@+id/Titre"
-        app:layout_constraintVertical_bias="0.605" />
+        app:layout_constraintVertical_bias="0.283" />
 
     <Spinner
         android:id="@+id/spinner1"
-        android:layout_width="597dp"
-        android:layout_height="133dp"
+        style="@android:style/Widget.Material.Spinner"
+        android:layout_width="377dp"
+        android:layout_height="93dp"
+        android:backgroundTint="#B023FEC6"
         android:scrollbarSize="30px"
+        android:textAlignment="textEnd"
         android:textSize="80px"
         app:layout_constraintBottom_toTopOf="@+id/afficher"
-        app:layout_constraintEnd_toEndOf="@+id/date"
-        app:layout_constraintStart_toStartOf="@+id/date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.827"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Titre"
-        app:layout_constraintVertical_bias="0.826" />
+        app:layout_constraintVertical_bias="0.615" />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="413dp"
+        android:layout_height="91dp"
+        android:text="Selectionnez Un Rapport :"
+        android:textSize="25px"
+        app:layout_constraintBottom_toTopOf="@+id/afficher"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.188"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.881" />
+
+    <TextView
+        android:id="@+id/Rapport"
+        android:layout_width="671dp"
+        android:layout_height="249dp"
+        android:background="#00FFFFFF"
+        android:fontFamily="sans-serif-medium"
+        android:text=""
+        android:textSize="35px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.565"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/afficher"
+        app:layout_constraintVertical_bias="0.162" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
