@@ -71,6 +71,32 @@
         app:layout_constraintHorizontal_bias="0.565"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/afficher"
-        app:layout_constraintVertical_bias="0.162" />
+        app:layout_constraintVertical_bias="0.058" />
+
+    <Button
+        android:id="@+id/buttonEchan"
+        android:layout_width="226dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="40dp"
+        android:onClick="listeEchantillons"
+        android:text="Liste Echantillons Offerts"
+        app:layout_constraintEnd_toEndOf="@+id/Rapport"
+        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintStart_toStartOf="@+id/Rapport"
+        app:layout_constraintTop_toBottomOf="@+id/Rapport" />
+
+
+    <TextView
+        android:id="@+id/Offre"
+        android:layout_width="541dp"
+        android:layout_height="158dp"
+        android:layout_marginTop="40dp"
+        android:textSize="30px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/Rapport"
+        app:layout_constraintHorizontal_bias="0.438"
+        app:layout_constraintStart_toStartOf="@+id/Rapport"
+        app:layout_constraintTop_toBottomOf="@+id/buttonEchan"
+        app:layout_constraintVertical_bias="0.042" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

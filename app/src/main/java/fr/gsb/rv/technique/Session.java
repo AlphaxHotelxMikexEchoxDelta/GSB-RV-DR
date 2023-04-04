@@ -23,11 +23,11 @@ public class Session {
         return session ;
     }
 
-    public static Session ouvrir( Visiteur visiteur ){
-        if( session == null ){
-            session = new Session( visiteur ) ;
+    public static Session ouvrir( Visiteur visiteur ) {
+        if (session == null) {
+            session = new Session(visiteur);
         }
-        return session ;
+        return session;
     }
 
     public static void fermer(){

@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         else {
             if (!login.getText().toString().isEmpty() && !mdp.getText().toString().isEmpty()) {
 
-                String url = String.format("http://192.168.0.12:5000/visiteurs/%s/%s", login.getText(), mdp.getText());
+                String url = String.format("http://172.20.50.176:5000/visiteurs/%s/%s", login.getText(), mdp.getText());
                 Response.Listener<JSONObject> ecouteurReponse = new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
