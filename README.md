@@ -3,6 +3,13 @@
 # GSB-Frais
 Application mobile realiser avec [Android Studio](https://developer.android.com/studio/) ( [__Projet GSB__](https://github.com/AlphaxHotelxMikexEchoxDelta/GSB-Projet) )
 
+## Installations des ressources
+cloner le [server python](https://github.com/AlphaxHotelxMikexEchoxDelta/GSB-RV-DR-SERVER) et lancer les commandes suivante:
+```bash
+apt install python3 pip mariadb-server
+pip install flask mysql.connector
+```
+
 ## Screens shots
 
 ## Base de donnees
